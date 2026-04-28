@@ -89,12 +89,7 @@ The validators (`scripts/{validate-layout.sh, factory-rules.ts, fixture-rules.ts
 ```
 .
 ├── docs/
-│   ├── CONSTRAINTS.md            # project boundary rules (read first)
 │   ├── test-Assignment.pdf       # the PRD
-│   ├── test-design/              # equivalence classes / boundaries / decisions per scenario
-│   │   ├── signup-flow.md
-│   │   ├── personal-vpn-ru.md
-│   │   └── personal-vpn-en.md
 │   └── ux-findings.md            # UX & functional defects discovered during automation
 ├── tests/
 │   ├── infra/env.ts              # zod-validated env access
