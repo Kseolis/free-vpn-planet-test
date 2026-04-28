@@ -16,6 +16,7 @@ export default tseslint.config(
       'test-results/**',
       'tests/api/generated/**',
       '.husky/_/**',
+      '.claude/**',
     ],
   },
   js.configs.recommended,

@@ -10,6 +10,7 @@
     "infra": "tests/infra"
   },
   "openapi": {
+    "enabled": false,
     "source": "specs/openapi.yaml",
     "generated": "tests/api/generated"
   },
