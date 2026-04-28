@@ -110,12 +110,27 @@ if [[ -f "tests-config.json" ]] && command -v node >/dev/null 2>&1; then
   '
 fi
 
-# 5. npm install
+# 5. npm install — scripts disabled for supply-chain safety.
+#    Lifecycle hooks of transitive deps are NOT executed.
+#    We re-run only the hooks we explicitly trust below.
 if command -v npm >/dev/null 2>&1; then
-  echo "[5/7] npm install"
-  npm install --no-audit --no-fund
+  echo "[5/7] npm install (scripts disabled)"
+  npm install --no-audit --no-fund --ignore-scripts
+
+  # Re-run trusted lifecycle steps explicitly.
+  # husky: needed to install git hooks from templates/husky/.
+  if [ -d .git ] && [ -f node_modules/husky/bin.mjs ]; then
+    echo "[5/7] husky init (explicit, replaces skipped postinstall)"
+    npx --no-install husky || true
+  fi
 else
-  echo "[5/7] npm not found — install Node 20+ then run 'npm install' manually"
+  echo "[5/7] npm not found — install Node 20+ then run 'npm install --ignore-scripts' manually"
+fi
+
+# 6. playwright install — browsers (not the npm package)
+if command -v npx >/dev/null 2>&1; then
+  echo "[6/7] playwright install (browsers)"
+  npx --no-install playwright install --with-deps chromium
 fi
 
 # 6. playwright install
