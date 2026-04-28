@@ -29,8 +29,15 @@ export class SignupPage extends BasePage {
    * `blur` events fire. Playwright's native `.fill()` / `.pressSequentially()`
    * does not reliably dispatch `change` in headless mode, so we set the value
    * and fire the events programmatically.
+   *
+   * Anti-flake: wait for the plan-select toggle to appear before injecting
+   * the value. The toggle is rendered AFTER Vue mounts the form, so its
+   * presence is a reliable hydration marker. Without this wait, the test
+   * intermittently fires events on an element whose listeners aren't yet
+   * attached when navigating from /login/.
    */
   async fillEmail(value: string): Promise<void> {
+    await this.planSelectToggle().waitFor({ state: 'visible' });
     await this.emailInput().evaluate((el: HTMLInputElement, v: string) => {
       el.value = v;
       el.dispatchEvent(new Event('input', { bubbles: true }));
