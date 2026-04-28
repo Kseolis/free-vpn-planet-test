@@ -6,7 +6,8 @@
 [![Playwright](https://img.shields.io/badge/playwright-%E2%89%A51.50-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://www.conventionalcommits.org/en/v1.0.0/)
 
-**SonarCloud badges**
+## SonarCloud badges
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Kseolis_free-vpn-planet-test&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Kseolis_free-vpn-planet-test)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Kseolis_free-vpn-planet-test&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Kseolis_free-vpn-planet-test)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Kseolis_free-vpn-planet-test&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Kseolis_free-vpn-planet-test)
